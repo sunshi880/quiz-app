@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="screen">
+      <h1>Welcome to the Quiz!</h1>
+      <div class="card">
+        <div class="settings">
+          <h2>Quiz Settings</h2>
+          
+          <div class="setting-group">
+            <label for="category-select">Select Category:</label>
+            <select id="category-select">
+              <option value="all">All Categories</option>
+              <option value="1">General Knowledge</option>
+              <option value="2">Math</option>
+              <option value="3">Coding</option>
+            </select>
+          </div>
+          
+          <div class="setting-group">
+            <label for="question-count">Number of Questions:</label>
+            <select id="question-count">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+            </select>
+          </div>
+          
+          <div class="setting-group checkbox">
+            <input type="checkbox" id="enable-timer" checked>
+            <label for="enable-timer">Enable Timer (10 seconds per question)</label>
+          </div>
+          
+          <div class="setting-group checkbox">
+            <input type="checkbox" id="show-progress" checked>
+            <label for="show-progress">Show Progress</label>
+          </div>
+          
+          <button id="start-btn" class="btn primary-btn">Start Quiz</button>
+        </div>
+      </div>
+      
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Quiz Screen -->
+    <div id="quiz-screen" class="screen hidden">
+      <div class="quiz-header">
+        <div id="category-indicator" class="category-badge">Category: General Knowledge</div>
+        <div id="timer-container" class="timer-container">
+          <div class="timer-label">Time left:</div>
+          <div id="timer" class="timer">10</div>
+        </div>
+      </div>
+      
+      <div id="progress-container" class="progress-container">
+        <div class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">10</span></div>
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar" style="width: 10%"></div>
+        </div>
+      </div>
+      
+      <div class="question-card card">
+        <h2 id="question-text">What is the capital of France?</h2>
+        <div id="options-container" class="options-container">
+          <!-- Options will be added dynamically -->
+        </div>
+      </div>
+      
+      <div id="feedback-container" class="feedback-container hidden">
+        <!-- Feedback will be shown here -->
+      </div>
+      
+      <div class="navigation-buttons">
+        <button id="next-btn" class="btn primary-btn hidden">Next Question</button>
+      </div>
+    </div>
+    
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen hidden">
+      <h1>Quiz Results</h1>
+      <div class="card results-card">
+        <div class="score-container">
+          <div class="score-circle">
+            <div class="score-text">
+              <span id="score">0</span>/<span id="max-score">10</span>
+            </div>
+            <div id="percentage">0%</div>
+          </div>
+        </div>
+        
+        <div class="results-message">
+          <p id="results-feedback">Better luck next time!</p>
+        </div>
+        
+        <div class="button-group">
+          <button id="play-again-btn" class="btn primary-btn">Play Again</button>
+          <button id="home-btn" class="btn secondary-btn">Back to Home</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
